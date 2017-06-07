@@ -1,8 +1,13 @@
 {
   "dependencies": {
     "@types/mithril": "^1.1.4",
+    "firebase": "^4.1.1",
     "fuse-box": "^2.0.12",
     "mithril": "^1.1.1",
     "typescript": "^2.3.4"
+  },
+  "devDependencies": {
+    "postcss": "^6.0.1",
+    "postcss-nested": "^2.0.2"
   }
 }
