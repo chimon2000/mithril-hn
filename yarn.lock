@@ -323,6 +323,14 @@ cryptiles@2.x.x:
   dependencies:
     boom "2.x.x"
 
+csstips@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/csstips/-/csstips-0.2.0.tgz#30aca9b13e36f0a9396ef3ae6cff93f84f7ea01d"
+
+csx@^8.2.1:
+  version "8.2.1"
+  resolved "https://registry.yarnpkg.com/csx/-/csx-8.2.1.tgz#a2eadd886fd51c8eeaaac3dc2a6e8f0e49ecc5e2"
+
 dashdash@^1.12.0:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/dashdash/-/dashdash-1.14.1.tgz#853cfa0f7cbe2fed5de20326b8dd581035f6e2f0"
@@ -588,6 +596,10 @@ form-data@~2.1.1:
 forwarded@~0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.0.tgz#19ef9874c4ae1c297bcf078fde63a09b66a84363"
+
+free-style@2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/free-style/-/free-style-2.3.1.tgz#ae256f7e78926bf034d2a51f4ba45715b4e6a709"
 
 fresh@0.5.0:
   version "0.5.0"
@@ -1650,6 +1662,12 @@ type-is@~1.6.15:
 typescript@^2.3.4:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.3.4.tgz#3d38321828231e434f287514959c37a82b629f42"
+
+typestyle@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/typestyle/-/typestyle-1.3.2.tgz#c230cce7d3ffaa0f6316f6bf443af97121189219"
+  dependencies:
+    free-style "2.3.1"
 
 uid-number@^0.0.6:
   version "0.0.6"
