@@ -14,25 +14,33 @@ const DefaultLoadProps: LoadProps = {
 }
 
 const News = {
+    loading: {
+        list: true,
+        current: true
+    },
     list: [],
     current: {},
     async load(props: LoadProps = DefaultLoadProps) {
         let { listType, id, page = 1 } = props
         if (id) {
-            let user: any = await m.request({
+            this.loading.current = true
+            let story: any = await m.request({
                 method: 'GET',
                 url: `${config.baseUrl}/item/${id}`,
                 data: { id }
             })
 
-            this.current = user
+            this.current = story
+            this.loading.current = false
         } else {
+            this.loading.list = true
             let stories: any = await m.request({
                 method: 'GET',
                 url: `${config.baseUrl}/${listType}?page=${page || 1}`
             })
 
             this.list = stories
+            this.loading.list = false
         }
     }
 }
