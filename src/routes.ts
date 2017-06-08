@@ -1,6 +1,7 @@
 import * as m from 'mithril'
 
 import NewsView from './views/NewsView'
+import UserView from './views/UserView'
 import Layout from './layout/layout'
 export default {
     '/top': {
@@ -29,8 +30,13 @@ export default {
         }
     },
     '/item/:id': {
-        view() {
-            return m(Layout, m(NewsView))
+        view(vnode) {
+            return m(Layout, m(NewsView, vnode.attrs))
+        }
+    },
+    '/user/:name': {
+        view(vnode) {
+            return m(Layout, m(UserView, vnode.attrs))
         }
     }
 }
