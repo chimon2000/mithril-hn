@@ -10,7 +10,13 @@
     "typestyle": "^1.3.2"
   },
   "devDependencies": {
+    "cpx": "^1.5.0",
     "postcss": "^6.0.1",
-    "postcss-nested": "^2.0.2"
+    "postcss-nested": "^2.0.2",
+    "rimraf": "^2.6.1"
+  },
+  "scripts": {
+    "prestart": "rimraf dist && cpx ./src/favicon.ico ./dist/",
+    "start": "node fuse"
   }
 }
