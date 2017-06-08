@@ -1,37 +1,15 @@
 import * as m from 'mithril'
+import config from './config'
 
 const User = {
-    list: [],
     current: {},
-    async load(id?) {
-        if (id) {
-            let user: any = await m.request({
-                method: 'GET',
-                url: 'https://rem-rest-api.herokuapp.com/api/users/:id',
-                data: { id },
-                withCredentials: true
-            })
-
-            this.current = user
-        } else {
-            let { data }: any = await m.request({
-                method: 'GET',
-                url: 'https://rem-rest-api.herokuapp.com/api/users',
-                withCredentials: true
-            })
-
-            this.list = data
-        }
-    },
-    async save() {
-        let result = await m.request({
-            method: "PUT",
-            url: "https://rem-rest-api.herokuapp.com/api/users/:id",
-            data: User.current,
-            withCredentials: true,
+    async load(id) {
+        let user: any = await m.request({
+            method: 'GET',
+            url: `${config.baseUrl}/user/${id}`
         })
 
-        return result
+        this.current = user
     }
 }
 
