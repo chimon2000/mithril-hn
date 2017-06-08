@@ -1,8 +1,6 @@
 const { FuseBox } = require('fuse-box')
 const { WebIndexPlugin, CSSPlugin, ImageBase64Plugin, PostCSSPlugin } = require('fuse-box')
-const nested = require('postcss-nested')
 
-console.log(nested)
 const fuse = FuseBox.init({
     homeDir: 'src',
     plugins: [
