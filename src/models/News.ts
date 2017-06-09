@@ -5,7 +5,18 @@ import * as m from 'mithril'
 type LoadProps = {
     id?: number
     page?: number
-    listType: 'news' | 'newest' | 'jobs' | 'ask'
+    listType?: 'news' | 'newest' | 'jobs' | 'ask'
+}
+
+export type Story = {
+    id: number
+    title: string
+    points: number
+    time_ago: string
+    comments_count: number
+    user: string
+    url: string
+    comments: any[]
 }
 
 const DefaultLoadProps: LoadProps = {
@@ -19,15 +30,14 @@ const News = {
         current: true
     },
     list: [],
-    current: {},
+    current: {} as Story,
     async load(props: LoadProps = DefaultLoadProps) {
         let { listType, id, page = 1 } = props
         if (id) {
             this.loading.current = true
             let story: any = await m.request({
                 method: 'GET',
-                url: `${config.baseUrl}/item/${id}`,
-                data: { id }
+                url: `${config.baseUrl}/item/${id}`
             })
 
             this.current = story
