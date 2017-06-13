@@ -67,7 +67,7 @@ export default class Header implements ClassComponent<{}> {
     view() {
         return m('div', { className: header }, [
             m('nav', { className: nav }, [
-                m('img', { className: logoStyle, src: logo }),
+                m('img', { className: logoStyle, src: logo, alt: 'logo' }),
                 Nav.map(row =>
                     m(
                         'a',
