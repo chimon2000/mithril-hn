@@ -4,19 +4,31 @@
     "csstips": "^0.2.0",
     "csx": "^8.2.1",
     "firebase": "^4.1.1",
-    "fuse-box": "^2.0.12",
+    "fuse-box": "^2.1.0",
     "mithril": "^1.1.1",
     "typescript": "^2.3.4",
     "typestyle": "^1.3.2"
   },
   "devDependencies": {
     "cpx": "^1.5.0",
+    "cross-env": "^5.0.1",
     "postcss": "^6.0.1",
     "postcss-nested": "^2.0.2",
-    "rimraf": "^2.6.1"
+    "rimraf": "^2.6.1",
+    "serve": "^5.2.2",
+    "uglify-js": "^3.0.15",
+    "workbox-build": "^1.0.1"
   },
   "scripts": {
-    "prestart": "rimraf dist && cpx ./src/favicon.ico ./dist/",
-    "start": "node fuse"
+    "prestart": "npm run build",
+    "start": "cross-env NODE_ENV=production node fuse && npm run generate-sw",
+    "start-dev": "node fuse",
+    "prebuild": "rimraf dist",
+    "build": "npm run copy-fav && npm run copy-manifest && npm run copy-images",
+    "copy-manifest": "cpx src/manifest.json dist/",
+    "copy-images": "cpx ./src/images/*.png ./dist/images",
+    "copy-fav": "cpx ./src/favicon.ico dist/",
+    "generate-sw": "node generate-sw.js",
+    "serve": "serve dist"
   }
 }

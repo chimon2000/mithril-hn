@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Mithril HN</title>
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#222222">
+
     <style type="text/css">
         html,
         body {
@@ -19,13 +25,46 @@
             background-color: #f4f4f4;
         }
     </style>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-
-    <title>Mithril HN</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 </head>
 
 <body>
     $bundles
+
+    <noscript>
+        <h4 style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica;">
+            Sorry, JavaScript needs to be enabled in order to run this application.
+        </h4>
+    </noscript>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(function (registration) {
+                    registration.onupdatefound = function () {
+                        if (navigator.serviceWorker.controller) {
+                            var installingWorker = registration.installing;
+                            installingWorker.onstatechange = function () {
+                                switch (installingWorker.state) {
+                                    case 'installed':
+                                        break;
+                                    case 'redundant':
+                                        throw new Error('The installing ' +
+                                            'service worker became redundant.');
+                                    default:
+                                    // Ignore
+                                }
+                            };
+                        }
+                    };
+                }).catch(function (e) {
+                    console.error('Error during service worker registration:', e);
+                });
+        } else {
+            console.log('service worker is not supported');
+        }
+    </script>
+
 </body>
 
 </html>
