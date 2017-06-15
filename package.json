@@ -12,6 +12,7 @@
   "devDependencies": {
     "cpx": "^1.5.0",
     "cross-env": "^5.0.1",
+    "npm-run-all": "^4.0.2",
     "postcss": "^6.0.1",
     "postcss-nested": "^2.0.2",
     "rimraf": "^2.6.1",
@@ -20,15 +21,17 @@
     "workbox-build": "^1.0.1"
   },
   "scripts": {
-    "prestart": "npm run build",
-    "start": "cross-env NODE_ENV=production node fuse && npm run generate-sw",
-    "start-dev": "node fuse",
+    "start": "npm-run-all build",
+    "prestart-prod": "npm run build-prod",
+    "start-prod": "serve dist",
     "prebuild": "rimraf dist",
-    "build": "npm run copy-fav && npm run copy-manifest && npm run copy-images",
+    "build": "npm-run-all copy fuse",
+    "build-prod": "cross-env-shell NODE_ENV=production npm-run-all build generate-sw",
+    "fuse": "node fuse",
+    "copy": "npm-run-all --parallel copy-fav copy-manifest copy-images",
     "copy-manifest": "cpx src/manifest.json dist/",
-    "copy-images": "cpx ./src/images/*.png ./dist/images",
-    "copy-fav": "cpx ./src/favicon.ico dist/",
-    "generate-sw": "node generate-sw.js",
-    "serve": "serve dist"
+    "copy-images": "cpx src/images/*.png dist/images",
+    "copy-fav": "cpx src/favicon.ico dist/",
+    "generate-sw": "node generate-sw.js"
   }
 }
