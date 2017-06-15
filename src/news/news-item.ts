@@ -2,13 +2,16 @@ import * as m from 'mithril'
 import { style, classes } from 'typestyle'
 import { em, px } from 'csx'
 import { flexRoot, vertical } from 'csstips'
-import News from '../models/News'
 
 import { ClassComponent } from 'mithril'
 
 const article = style(flexRoot, {
     paddingLeft: em(1),
-    marginBottom: em(1.5)
+    $nest: {
+        '&:not(:last-child)': {
+            marginBottom: em(1.5)
+        }
+    }
 })
 
 const index = style({
@@ -21,8 +24,6 @@ const detail = style({
     color: '#666',
     fontSize: em(0.8)
 })
-
-const story = style(flexRoot, vertical, {})
 
 const link = style({
     color: '#666'

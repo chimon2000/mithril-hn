@@ -5,29 +5,29 @@ import UserView from './views/UserView'
 import ItemView from './views/ItemView'
 import Layout from './layout/layout'
 export default {
-    '/top': {
-        view() {
-            return m(Layout, m(NewsView))
+    '/top/:key': {
+        view(vnode) {
+            return m(Layout, m(NewsView, { ...vnode.attrs, name: 'top' }))
         }
     },
-    '/new': {
-        view() {
-            return m(Layout, m(NewsView))
+    '/new/:key': {
+        view(vnode) {
+            return m(Layout, m(NewsView, { ...vnode.attrs, name: 'new' }))
         }
     },
-    '/show': {
-        view() {
-            return m(Layout, m(NewsView))
+    '/show/:key': {
+        view(vnode) {
+            return m(Layout, m(NewsView, { ...vnode.attrs, name: 'show' }))
         }
     },
-    '/ask': {
-        view() {
-            return m(Layout, m(NewsView))
+    '/ask/:key': {
+        view(vnode) {
+            return m(Layout, m(NewsView, { ...vnode.attrs, name: 'ask' }))
         }
     },
-    '/jobs': {
-        view() {
-            return m(Layout, m(NewsView))
+    '/jobs/:key': {
+        view(vnode) {
+            return m(Layout, m(NewsView, { ...vnode.attrs, name: 'jobs' }))
         }
     },
     '/item/:id': {

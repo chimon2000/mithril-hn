@@ -14,6 +14,7 @@ const header = style(flexRoot, {
     padding: '0 16px',
     height: px(48),
     minHeight: px(48),
+    zIndex: 1,
     borderBottom: '#1e5799 1px solid'
 })
 
@@ -41,23 +42,23 @@ const activeStyles = style({
 export const Nav = [
     {
         name: 'Top',
-        route: '/top'
+        route: '/top/1'
     },
     {
         name: 'New',
-        route: '/new'
+        route: '/new/1'
     },
     {
         name: 'Show',
-        route: '/show'
+        route: '/show/1'
     },
     {
         name: 'Ask',
-        route: '/ask'
+        route: '/ask/1'
     },
     {
         name: 'Jobs',
-        route: '/jobs'
+        route: '/jobs/1'
     }
 ]
 
