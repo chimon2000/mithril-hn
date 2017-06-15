@@ -60,9 +60,7 @@ export default class CommentItem implements ClassComponent<{}> {
     showComments = true
 
     toggleShowComments() {
-        console.log('toggle show comments', this.showComments)
         this.showComments = !this.showComments
-        console.log('toggle show comments', this.showComments)
     }
 
     view(vnode) {
